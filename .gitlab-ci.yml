@@ -9,11 +9,12 @@ stages:
     name: hashicorp/terraform
     entrypoint: [""]
   before_script:
+    - cat /etc/apk/repositories
     - apk update
     - apk add ca-certificates curl apt-transport-https lsb-release gnupg
     - curl -sL https://packages.microsoft.com/keys/microsoft.asc |  gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
     - apk update && apk install azure-cli -y
-    - terraform init
+    - terraform init 
 validate:
   extends: .base
   stage: validate
