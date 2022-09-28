@@ -1,4 +1,5 @@
 stages:
+  - azcli
   - validate
   - plan
   - apply
@@ -9,7 +10,16 @@ stages:
     entrypoint: [""]
   before_script:
    - terraform init
-
+azcli:
+  extends: .base
+  stage: azcli
+  script:
+    - sudo apt-get update
+    - sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
+    - curl -sL https://packages.microsoft.com/keys/microsoft.asc |
+    gpg --dearmor |
+    sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+    - sudo apt-get update && sudo apt-get install azure-cli
 validate:
   extends: .base
   stage: validate
