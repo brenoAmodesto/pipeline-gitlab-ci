@@ -18,7 +18,7 @@ plan:
   extends: .base
   stage: plan
   script:
-    - terraform plan -out-plan.out
+    - terraform plan -out=plan.out
   cache:
     key: plan
     policy: push

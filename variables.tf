@@ -8,11 +8,11 @@ variable "location" {
 
 variable "aws_pub_key" {
   description = "Public key"
-  type = string
+  type        = string
 }
 
 
 variable "azure_pub_key" {
   description = "Public key"
-  type = string
+  type        = string
 }

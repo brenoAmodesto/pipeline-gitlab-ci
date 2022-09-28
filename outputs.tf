@@ -3,5 +3,5 @@ output "vmazure_ip" {
 }
 
 output "vmaws_ip" {
-    value = aws_instance.vm.public_ip
+  value = aws_instance.vm.public_ip
 }
